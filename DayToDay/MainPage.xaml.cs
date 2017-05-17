@@ -25,7 +25,7 @@ namespace DayToDay
     {
 
         private Button[] buttons = new Button[9];
-        private List<IActivity> activities = new List<IActivity>();
+        private List<Activity> activities = new List<Activity>();
 
         public MainPage()
         {
@@ -62,27 +62,57 @@ namespace DayToDay
 
         private void FillActivityList()
         {
-            activities.Add(new Meal());
-            activities.Add(new Work());
-            activities.Add(new Event());
-            activities.Add(new Event());
-            activities.Add(new Meal());
-            activities.Add(new Work());
-            activities.Add(new Work());
-            activities.Add(new Event());
-            activities.Add(new Meal());
+            activities.Clear();
+
+            Random rand = new Random();
+
+            for (int i = 0; i < 9; i++)
+            {
+                activities.Add(ActivityFactory.GetActivity(rand.Next(0, 6), "Activity Description!", 30));
+            }
+            //activities.Add(new Meal());
+            //activities.Add(new Work());
+            //activities.Add(new Event());
+            //activities.Add(new Event());
+            //activities.Add(new Meal());
+            //activities.Add(new Work());
+            //activities.Add(new Work());
+            //activities.Add(new Event());
+            //activities.Add(new Meal());
         }
 
+        int clickCounter = 0;
         private void TestInterfaceButton_Click(object sender, RoutedEventArgs e)
         {
-            SetButtonsToActivityColor();
+            if(clickCounter % 2 == 0)
+            {
+                SetButtonsToActivityColor();
+            }
+            else
+            {
+                SetButtonsToBlack();
+            }
+
+            clickCounter++;
+        }
+
+        private void SetButtonsToBlack()
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                buttons[i].Background = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void SetButtonsToActivityColor()
         {
+            FillActivityList();
+
             for (int i = 0; i < 9; i++)
             {
                 buttons[i].Background = new SolidColorBrush(activities[i].color);
+                ActivityText.Text += activities[i].description;
+                ActivityText.Text += activities[i].duration;
             }
            
         }

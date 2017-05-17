@@ -7,9 +7,12 @@ using Windows.UI;
 
 namespace DayToDay
 {
-    class Work : IActivity
+    class Work : Activity
     {
-        public Color color { get => Colors.Red; }
-        public int duration { get => duration; set { if (value >= 0) duration = value; } }
+        public Work(string text, int time) : base(text, time)
+        {
+        }
+
+        public override Color color { get => Colors.Red; }
     }
 }

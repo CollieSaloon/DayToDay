@@ -11,5 +11,6 @@ namespace DayToDay
     {
         Color color { get; }
         int duration { get; set; }
+        string description { get; set; }
     }
 }

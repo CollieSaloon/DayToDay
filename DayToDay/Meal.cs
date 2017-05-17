@@ -7,9 +7,13 @@ using Windows.UI;
 
 namespace DayToDay
 {
-    class Meal : IActivity
+    class Meal : Activity
     {
-        public Color color { get => Colors.Green; }
-        public int duration { get => duration; set { if (value >= 0) duration = value; } }
+        public Meal(string text, int time) : base(text, time)
+        {
+        }
+
+        public override Color color { get => Colors.Green; }
+
     }
 }

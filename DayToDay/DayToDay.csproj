@@ -93,16 +93,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Activity.cs" />
+    <Compile Include="ActivityFactory.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Event.cs" />
+    <Compile Include="FreeTime.cs" />
+    <Compile Include="Hobby.cs" />
     <Compile Include="IActivity.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Meal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Travel.cs" />
     <Compile Include="Work.cs" />
   </ItemGroup>
   <ItemGroup>

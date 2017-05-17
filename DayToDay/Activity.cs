@@ -7,9 +7,29 @@ using Windows.UI;
 
 namespace DayToDay
 {
-    class Activity
+    abstract class Activity
     {
-        public Color color { get; private set; }
-        public float duration { get => duration; set { if (value >= 0) duration = value; } }
+
+        public Activity(string text, int time)
+        {
+            description = text;
+            SetDuration(time);
+        }
+
+        public abstract Color color { get; }
+        public int duration { get; private set; }
+        public string description { get; set; }
+
+        public void SetDuration(int time)
+        {
+            if (duration >= 0)
+            {
+                duration = time;
+            }
+            else
+            {
+                duration = 0;
+            }
+        }
     }
 }

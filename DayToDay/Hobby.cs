@@ -7,13 +7,12 @@ using Windows.UI;
 
 namespace DayToDay
 {
-    class Event : Activity
+    class Hobby : Activity
     {
-        public Event(string text, int time) : base(text, time)
+        public Hobby(string text, int time) : base(text, time)
         {
         }
 
-        public override Color color { get => Colors.Purple; }
-        
+        public override Color color { get => Colors.MidnightBlue; }
     }
 }

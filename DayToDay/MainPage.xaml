@@ -18,6 +18,7 @@
             <ColumnDefinition Width="3*" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <TextBlock Name="ActivityText" Grid.Row="1" Grid.Column="2" TextWrapping="WrapWholeWords" />
         <Grid Name="ButtonGrid" Grid.Row="1" Grid.Column="1" >
             <Grid.RowDefinitions>
                 <RowDefinition />
