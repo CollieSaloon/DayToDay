@@ -9,12 +9,14 @@ namespace DayToDay
 {
     class Travel : Activity
     {
-        public Travel(string text, int time) : base(text, time)
+        public Travel(string text, int sTime, int dTime) : base(text, sTime, dTime)
         {
         }
 
         public override Color color { get => Colors.Yellow; }
-        
+        public override string type { get => "Travel"; }
+
+
 
     }
 }

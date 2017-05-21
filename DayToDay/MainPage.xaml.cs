@@ -26,6 +26,8 @@ namespace DayToDay
 
         private Button[] buttons = new Button[9];
         private List<Activity> activities = new List<Activity>();
+        DateTime date = DateTime.Now;
+        
 
         public MainPage()
         {
@@ -68,7 +70,7 @@ namespace DayToDay
 
             for (int i = 0; i < 9; i++)
             {
-                activities.Add(ActivityFactory.GetActivity(rand.Next(0, 6), "Activity Description!", 30));
+                activities.Add(ActivityFactory.GetActivity(rand.Next(0, 7), "Activity Description!", 0, 30));
             }
             //activities.Add(new Meal());
             //activities.Add(new Work());
@@ -87,17 +89,27 @@ namespace DayToDay
             if(clickCounter % 2 == 0)
             {
                 SetButtonsToActivityColor();
+                GetAllActivitiesOfType(activities);
             }
             else
             {
                 SetButtonsToBlack();
+                ClearText();
             }
 
             clickCounter++;
         }
 
+        private void ClearText()
+        {
+            ActivityText.Text = "";
+            TypeText.Text = "";
+        }
+
         private void SetButtonsToBlack()
         {
+            
+
             for (int i = 0; i < 9; i++)
             {
                 buttons[i].Background = new SolidColorBrush(Colors.Black);
@@ -113,8 +125,35 @@ namespace DayToDay
                 buttons[i].Background = new SolidColorBrush(activities[i].color);
                 ActivityText.Text += activities[i].description;
                 ActivityText.Text += activities[i].duration;
+                ActivityText.Text += activities[i].type;
             }
            
+        }
+
+        private void GetAllActivitiesOfType(List<Activity> activities)
+        {
+            string type = "";
+
+            while (activities.Count > 0)
+            {
+                type = activities[0].type;
+
+                for (int i = 0; i < activities.Count; i++)
+                {
+                    if(activities[i].type == type)
+                    {
+                        TypeText.Text += activities[i].type;
+                        activities.RemoveAt(i);
+                    }
+                }
+            }
+
+        }
+
+        private void DatePicker_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+        {
+            DateTimeOffset? selectedDate = DatePicker.Date;
+            date = selectedDate.Value.DateTime;
         }
     }
 }

@@ -9,10 +9,12 @@ namespace DayToDay
 {
     class Hobby : Activity
     {
-        public Hobby(string text, int time) : base(text, time)
+        public Hobby(string text, int sTime, int dTime) : base(text, sTime, dTime)
         {
         }
 
         public override Color color { get => Colors.MidnightBlue; }
+        public override string type { get => "Hobby"; }
+
     }
 }

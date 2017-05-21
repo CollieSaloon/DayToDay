@@ -9,10 +9,13 @@ namespace DayToDay
 {
     class Work : Activity
     {
-        public Work(string text, int time) : base(text, time)
+
+        public Work(string text, int sTime, int dTime) : base(text, sTime, dTime)
         {
         }
 
         public override Color color { get => Colors.Red; }
+        public override string type { get => "Work"; }
+
     }
 }

@@ -9,11 +9,12 @@ namespace DayToDay
 {
     class Meal : Activity
     {
-        public Meal(string text, int time) : base(text, time)
+        public Meal(string text, int sTime, int dTime) : base(text, sTime, dTime)
         {
         }
 
-        public override Color color { get => Colors.Green; }
+        public override Color color { get => Colors.Coral; }
+        public override string type { get => "Meal"; }
 
     }
 }

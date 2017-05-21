@@ -8,22 +8,24 @@ namespace DayToDay
 {
     class ActivityFactory
     {
-        public static Activity GetActivity(int type, string text, int time)
+        public static Activity GetActivity(int type, string text, int startTime, int duration)
         {
             switch (type)
             {
                 case 0:
-                    return new Meal(text, time);
+                    return new Meal(text, startTime, duration);
                 case 1:
-                    return new Work(text, time);
+                    return new Work(text, startTime, duration);
                 case 2:
-                    return new Event(text, time);
+                    return new Event(text, startTime, duration);
                 case 3:
-                    return new Travel(text, time);
+                    return new Travel(text, startTime, duration);
                 case 4:
-                    return new Hobby(text, time);
+                    return new Hobby(text, startTime, duration);
                 case 5:
-                    return new FreeTime(text, time);
+                    return new FreeTime(text, startTime, duration);
+                case 6:
+                    return new Sleep(text, startTime, duration);
                 default:
                     break;
             }
